@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plasma Safety - Secure Roblox Executor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+            :root {
+    --primary-color: #7002ff; 
+    --secondary-color: #a200ff; 
+    --accent-color: #bd6cff; 
+    --complement-color: #ffcc00; 
+    --neutral-color: #e0e0e0; 
+    --background-color: #150427; 
+    --text-color: #ffffff; 
+    --card-bg: rgba(255, 255, 255, 0.05); 
+}
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+       header {
+            background-color: #150427;
+            backdrop-filter: blur(10px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            fill: var(--accent-color);
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .safety-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+
+        .safety-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .safety-features {
+            padding: 80px 0;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .safety-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .safety-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
+        }
+
+        .safety-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .safety-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--background-color);
+        }
+
+        .safety-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .trust-section {
+            background: var(--card-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .trust-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            background: var(--background-color);
+            border-radius: 10px;
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+        }
+
+        .trust-badge img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .faq-section {
+            padding: 80px 0;
+        }
+
+        .faq-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .faq-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            
+                Plasma
+            </div>
+            <div class="nav-links">
+                <a href="Plasma.html">Home</a>
+                <a href="plasmafeature.html">Features</a>
+                <a href="plasmapricing.html">Pricing</a>
+                <a href="plasmasafety.html">Safety</a>
+                <a href="plasmacommunity.html">Community</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="safety-hero">
+            <div class="container">
+                <h1>Your Roblox Exploiting Safety is Our Priority</h1>
+                <p>Experience Roblox exploiting with peace of mind of Byfron!</p>
+            </div>
+        </section>
+
+        <section class="safety-features container">
+            <h2>How We Keep You Safe</h2>
+            <div class="safety-grid">
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
+                        </svg>
+                    </div>
+                    <h>frequent updates</h>
+                    <p>Our advanced Development team always checks and updates Plasma.</p>
+                </div>
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                        </svg>
+                    </div>
+                    <h3>Execution Safety</h3>
+                    <p>We Conduct checks to make sure users cant ruin ur exploiting experience with a harmful script.</p>
+                </div>
+                <div class="safety-card">
+                    <div class="safety-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                        </svg>
+                    </div>
+                    <h3>Encrypted Data</h3>
+                    <p>All data ur data when using Plasma is Encrypted Roblox will never hwid ban or contact u.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="trust-section">
+            <div class="container">
+                <h2>Trusted by the Community</h2>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <img src="media/icons8-malwarebytes-48.png" alt="Malware-Free Badge">
+                        <p>Malware-Free</p>
+                    </div>
+                    <div class="trust-badge">
+                        <img src="media/icons8-community-30.png" alt="Community Approved Badge">
+                        <p>Community Approved</p>
+                    </div>
+                    <div class="trust-badge">
+                        <img src="media/icons8-trust-48.png" alt="24/7 Support Badge">
+                        <p>24/7 Support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section container">
+            <h2>Safety FAQs</h2>
+            <div class="faq-item">
+                <h3>Is Plasma safe to use?</h3>
+                <p>Yes, Plasma is designed with user safety as the top priority. We employ robust security measures and conduct regular audits to ensure a safe experience.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Can using Plasma get my Roblox account banned?</h3>
+                <p>While we implement advanced cloaking technologies, we cannot guarantee 100% undetectability. We recommend using exploits responsibly and at your own risk.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do you protect user data?</h3>
+                <p>We use industry-standard encryption for all data transmissions and do not store any sensitive user information on our servers.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Plasma. All rights reserved.</p>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from('.safety-card', {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.safety-features',
+                start: 'top 80%'
+            }
+        });
+
+        gsap.from('.trust-badge', {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'back.out(1.7)',
+            scrollTrigger: {
+                trigger: '.trust-section',
+                start: 'top 80%'
+            }
+        });
+
+        gsap.from('.faq-item', {
+            opacity: 0,
+            y: 30,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.faq-section',
+                start: 'top 80%'
+            }
+        });
+    </script>
+</body>
+</html>
