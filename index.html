@@ -10,15 +10,15 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
         :root {
-    --primary-color: #7002ff; 
-    --secondary-color: #a200ff; 
-    --accent-color: #bd6cff; 
-    --complement-color: #ffcc00;l
-    --neutral-color: #e0e0e0; 
-    --background-color: #150427; 
-    --text-color: #ffffff; 
-    --card-bg: rgba(255, 255, 255, 0.05); 
-}
+            --primary-color: #7002ff; 
+            --secondary-color: #a200ff; 
+            --accent-color: #bd6cff; 
+            --complement-color: #ffcc00;
+            --neutral-color: #e0e0e0; 
+            --background-color: #150427; 
+            --text-color: #ffffff; 
+            --card-bg: rgba(255, 255, 255, 0.05); 
+        }
 
         * {
             margin: 0;
@@ -48,12 +48,6 @@
             transition: all 0.3s ease;
         }
 
-        header.scrolled {
-            background-color: rgba(0, 17, 51, 0.8);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.1);
-        }
-
         nav {
             display: flex;
             justify-content: space-between;
@@ -64,15 +58,6 @@
             font-size: 24px;
             font-weight: 700;
             color: var(--text-color);
-            display: flex;
-            align-items: center;
-        }
-
-        .logo svg {
-            width: 30px;
-            height: 30px;
-            margin-right: 10px;
-            fill: var(--accent-color);
         }
 
         .nav-links {
@@ -114,17 +99,6 @@
             overflow: hidden;
         }
 
-        .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%230066cc" fill-opacity="0.5" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,213.3C1248,235,1344,213,1392,202.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
         .hero-content {
             max-width: 800px;
             z-index: 1;
@@ -140,12 +114,6 @@
             animation: gradient-shift 5s ease infinite;
         }
 
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
         @keyframes gradient-shift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -158,8 +126,14 @@
             opacity: 0.9;
         }
 
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
         .cta-button {
-            display: inline-block;
             background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
             color: var(--text-color);
             padding: 12px 30px;
@@ -169,9 +143,27 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
         }
 
-        .cta-button::before {
+        .discord-button {
+            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+            color: var(--text-color);
+            padding: 8px 21px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin: 5px 0;
+            width: 100%;
+            max-width: 210px;
+        }
+
+        .cta-button::before, .discord-button::before {
             content: '';
             position: absolute;
             top: 0;
@@ -182,75 +174,13 @@
             transition: all 0.4s ease;
         }
 
-        .cta-button:hover::before {
+        .cta-button:hover::before, .discord-button:hover::before {
             left: 100%;
         }
 
-        .cta-button:hover {
+        .cta-button:hover, .discord-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
-        }
-
-        .features, .pricing, .safety, .community {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .feature-grid, .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card, .pricing-card {
-            background: linear-gradient(135deg, var(--card-bg), rgba(0, 102, 204, 0.1));
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before, .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .feature-card:hover::before, .pricing-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card:hover, .pricing-card:hover {
-            transform: translateY(-10px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
-        }
-
-        .feature-icon, .pricing-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .feature-card h3, .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-
-        .safety-content, .community-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
         }
 
         footer {
@@ -281,16 +211,14 @@
 <body>
     <header>
         <nav class="container">
-            
-                
-                Plasma
-            </div>
+            <div class="logo">Plasma</div>
             <div class="nav-links">
                 <a href="">Home</a>
                 <a href="plasmafeature.html">Features</a>
                 <a href="plasmapricing.html">Pricing</a>
                 <a href="plasmasafety.html">Safety</a>
                 <a href="plasmacommunity.html">Community</a>
+                <a href="download.html">Download</a>
             </div>
         </nav>
     </header>
@@ -298,15 +226,17 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>plasma</h1>
-                <p>Experience a seamless and secure Roblox exploit with plasma. Say goodbye to unreliable executors and hidden malware.</p>
-                <a href="plasmapricing.html" class="cta-button">Get Started</a>
+                <h1>Plasma</h1>
+                <p>Experience a seamless and secure Roblox exploit with Plasma. Say goodbye to unreliable executors and hidden malware.</p>
+                <div class="button-container">
+                    <a href="plasmapricing.html" class="cta-button">Get Started</a>
+                    <a href="https://discord.gg/example" class="discord-button">
+                        <img src="https://logos-world.net/wp-content/uploads/2021/05/Logo-Discord.png" alt="Discord Logo" style="width: 20px; height: auto; vertical-align: middle; margin-right: 5px;">
+                        Join Our Discord
+                    </a>
+                </div>
             </div>
-           
         </section>
-
-        
-
     </main>
 
     <footer>
@@ -314,7 +244,7 @@
     </footer>
 
     <script>
-      
+        // Optional: Add any additional scripts here
     </script>
 </body>
 </html>
