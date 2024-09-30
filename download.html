@@ -31,8 +31,8 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            overflow: hidden;
-            height: 100vh;
+            overflow-x: hidden;
+            min-height: 100vh;
         }
 
         .container {
@@ -93,12 +93,18 @@
         }
 
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            position: relative;
+            padding: 100px 0;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .pricing-card {
@@ -108,14 +114,10 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             width: 300px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .pricing-card:hover {
-            transform: translate(-50%, -55%);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
         }
 
@@ -150,6 +152,7 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            margin-bottom: 13px;
         }
 
         .cta-button:hover {
@@ -161,8 +164,7 @@
             text-align: center;
             padding: 20px 0;
             background-color: rgba(255, 255, 255, 0.05);
-            position: fixed;
-            bottom: 0;
+            position: relative;
             width: 100%;
             z-index: 1000;
         }
@@ -191,7 +193,7 @@
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="download.html">Download</a>
-                <a href="plasmapricing.html">Products</a>
+                <a href="plasmaproducts.html">Products</a>
                 <a href="plasmasafety.html">Safety</a>
                 <a href="plasmacommunity.html">Community</a>
                 <a href="plasmafeature.html">Features</a>
@@ -201,16 +203,33 @@
 
     <main>
         <section class="hero">
-            <div class="pricing-card">
-                <h2>Free Download</h2>
-                <p class="price">$0</p>
-                <ul>
-                    <li>Full feature access</li>
-                    <li>Key system for activation</li>
-                    <li>Community support</li>
-                    <li>Regular updates</li>
-                </ul>
-                <a href="https://exampledownload.com/" class="cta-button">Download Now!</a>
+            <div class="pricing-container">
+                <div class="pricing-card">
+                    <h2>PlasmaV Windows</h2>
+                    <p class="price">Free</p>
+                    <ul>
+					    <li>Free with ads</li>
+                        <li>Windows/Desktop support</li>
+                        <li>Clean UI</li>
+                        <li>UNC</li>
+                        <li>Regular updates</li>
+                    </ul>
+                    <a href="files/filenamefordownload" class="cta-button">Download!</a>
+                    <a href="plasmaproducts.html" class="cta-button">Buy Premium</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h2>Plasma Hub Script</h2>
+                    <p class="price">Free</p>
+                    <ul>
+                        <li>Mobile support</li>
+                        <li>Clean UI</li>
+                        <li>Game Hub</li>
+                        <li>Local Player Options</li>
+                        <li>A lot more!</li>
+                    </ul>
+                    <a href="https://raw.githubusercontent.com/GamingBears/Scripts/refs/heads/main/PlasmaLoader" class="cta-button">Copy Script</a>
+                </div>
             </div>
         </section>
     </main>
@@ -220,7 +239,19 @@
     </footer>
 
     <script>
-        // Optional: Add any additional scripts here
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from('.pricing-card', {
+            opacity: 0,
+            y: 50,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.pricing-container',
+                start: 'top 80%'
+            }
+        });
     </script>
 </body>
 </html>
