@@ -31,7 +31,8 @@
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow: hidden;
+            height: 100vh;
         }
 
         .container {
@@ -46,6 +47,8 @@
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
+            background-color: rgba(21, 4, 39, 0.8);
+            backdrop-filter: blur(10px);
         }
 
         nav {
@@ -96,77 +99,72 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 1;
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 300px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        h1 {
-            font-size: 3.5rem;
+        .pricing-card:hover {
+            transform: translate(-50%, -55%);
+            box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
+        }
+
+        .pricing-card h2 {
+            font-size: 2rem;
             margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 300% 300%;
-            animation: gradient-shift 5s ease infinite;
+            color: var(--accent-color);
         }
 
-        @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
         }
 
-        .hero p {
-            font-size: 1.2rem;
+        .pricing-card ul {
+            list-style-type: none;
+            padding: 0;
             margin-bottom: 30px;
-            opacity: 0.9;
         }
 
-        .download-button {
+        .pricing-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
             background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
             color: var(--text-color);
-            padding: 20px 50px;
-            border-radius: 50px;
+            padding: 12px 30px;
+            border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.5rem;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            margin-top: 30px;
         }
 
-        .download-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.4s ease;
-        }
-
-        .download-button:hover::before {
-            left: 100%;
-        }
-
-        .download-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(145, 61, 255, 0.3);
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(145, 61, 255, 0.2);
         }
 
         footer {
             text-align: center;
             padding: 20px 0;
             background-color: rgba(255, 255, 255, 0.05);
-            position: relative;
-            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
         }
 
         footer::before {
@@ -203,10 +201,16 @@
 
     <main>
         <section class="hero">
-            <div class="hero-content">
-                <h1>Download Plasma</h1>
-                <p>Get ready to experience the most powerful and secure Roblox exploit. Click the button below to start your download.</p>
-                <a href="https://exampledownload.com/" class="download-button">Download Now</a>
+            <div class="pricing-card">
+                <h2>Free Download</h2>
+                <p class="price">$0</p>
+                <ul>
+                    <li>Full feature access</li>
+                    <li>Key system for activation</li>
+                    <li>Community support</li>
+                    <li>Regular updates</li>
+                </ul>
+                <a href="https://exampledownload.com/" class="cta-button">Download Now!</a>
             </div>
         </section>
     </main>
